@@ -13,13 +13,25 @@ import org.apache.http.HttpStatus;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import static core.Constants.API_URI;
 import static org.hamcrest.Matchers.lessThan;
 
 public class CorporaApi {
 
     private CorporaApi(){}
 
+    public static class ApiBuilderCorpora{
+        CorporaApi corporaApi;
 
+        private ApiBuilderCorpora(CorporaApi getCorporaApi){
+            corporaApi = getCorporaApi;
+        }
+        public Response callApi(){
+            return RestAssured.with()
+                    .log().all()
+                    .get(API_URI).prettyPeek();
+        }
+    }
 
     public static ResponseSpecification successResponse(){
         return new ResponseSpecBuilder()
@@ -42,5 +54,8 @@ public class CorporaApi {
 
     }
 
-
+    public static ApiBuilderCorpora with(){
+        CorporaApi api = new CorporaApi();
+        return new ApiBuilderCorpora(api);
+    }
 }

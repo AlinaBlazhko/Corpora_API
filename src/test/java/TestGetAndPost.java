@@ -1,4 +1,5 @@
 import beans.Scheme;
+import com.sun.org.apache.xpath.internal.operations.Equals;
 import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import com.sun.xml.internal.ws.server.sei.MessageFiller;
 import core.CorporaApi;
@@ -28,5 +29,12 @@ public class TestGetAndPost {
                 .then().specification(CorporaApi.successResponse());
     }
 
-    
+    @Test
+    public void validateCorporaAsAnObject(){
+        List<Scheme> answers = CorporaApi.getCorporaAnswers(
+                CorporaApi.with()
+                .callApi());
+        assertThat(answers.size(), lessThanOrEqualTo(6 ));
+        //assertThat(answers.get(0).size, equalTo(1));
+    }
 }
