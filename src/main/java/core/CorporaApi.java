@@ -37,9 +37,8 @@ public class CorporaApi {
     public static ResponseSpecification successResponse(){
         return new ResponseSpecBuilder()
                 .expectContentType(ContentType.JSON)
-                .expectResponseTime(lessThan(20000L))
+                .expectResponseTime(lessThan(10000L))
                 .expectStatusCode(HttpStatus.SC_OK)
-                //.expectHeader()
                 .build();
     }
 

@@ -17,7 +17,6 @@ public class BorderValues {
                 CorporaApi.with()
                         .callApi());
         assertThat(answers.size(), greaterThan(0));
-        assertThat(answers.size(), not(lessThan(0)));
     }
 
     @Test
@@ -25,7 +24,6 @@ public class BorderValues {
         List<Scheme> answers = CorporaApi.getCorporaAnswers(
                 CorporaApi.with()
                         .callApi());
-        assertThat(answers.size(), lessThan(6));
         assertThat(answers.size(), equalTo(5));
     }
 
