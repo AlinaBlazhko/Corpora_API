@@ -1,3 +1,4 @@
+   [
     {
         "id": "Valid102400B",
         "size": 1
@@ -22,3 +23,4 @@
         "id": "ValidAdditionalEmbeddedTags",
         "size": 1
     }
+    ]

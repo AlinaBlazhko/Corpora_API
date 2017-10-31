@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import static core.Constants.API_URI;
+import static org.hamcrest.Matchers.isEmptyString;
 import static org.hamcrest.Matchers.lessThan;
 
 public class CorporaApi {
@@ -38,6 +39,7 @@ public class CorporaApi {
                 .expectContentType(ContentType.JSON)
                 .expectResponseTime(lessThan(20000L))
                 .expectStatusCode(HttpStatus.SC_OK)
+                //.expectHeader()
                 .build();
     }
 
